@@ -38,7 +38,7 @@ et commanderMoteur(moteur,commande) effectue les différentes actions suivantes 
 #############################      VARIABLES      ####################################
 */
 // pin des moteurs
-const byte pinMoteur[5] = {3,5,6,9,10};
+const byte pinPwmMoteur[5] = {3,5,6,9,10};
 
 // sens des moteurs
 const byte pinSensMoteur[5] = {2,4,7,8,12};
@@ -106,7 +106,7 @@ void setup() {
   for (byte m=0; m<5; m++) {
     
     // pin moteurs et sens moteurs en sortie :
-    pinMode(pinMoteur[m],OUTPUT);
+    pinMode(pinPwmMoteur[m],OUTPUT);
     pinMode(pinSensMoteur[m],OUTPUT);
     
     // initialisation avec les positions initiales des moteurs
@@ -190,7 +190,7 @@ void commanderMoteur(byte m, int commande){
     sensMoteur[m] = 1;
   }
   digitalWrite(pinSensMoteur[m],sensMoteur[m]);
-  analogWrite(pinMoteur[m],abs(commande));
+  analogWrite(pinPwmMoteur[m],abs(commande));
 }
 
 // renvoie la commande associée aux boutons du moteur m
